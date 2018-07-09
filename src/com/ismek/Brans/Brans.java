@@ -36,6 +36,7 @@ public class Brans implements Serializable {
     @JoinTable(name = "tbl_BransToSorular", joinColumns = @JoinColumn(name = "soru_id"),
             inverseJoinColumns = @JoinColumn(name = "brans_id"))
     private Set<Sorular> sorulars;
+    
 
     public Brans() {}
     
@@ -80,7 +81,6 @@ public class Brans implements Serializable {
     public void setSorulars(Set<Sorular> sorulars) {
         this.sorulars = sorulars;
     }
-
 	
     
     

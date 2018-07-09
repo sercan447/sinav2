@@ -23,7 +23,7 @@ public class KullaniciToRole {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="role_id")
-	private Role roleId;
+	private Role role;
 
 	public long getKtrId() {
 		return ktrId;
@@ -41,12 +41,12 @@ public class KullaniciToRole {
 		this.kullanici = kullanici;
 	}
 
-	public Role getRoleId() {
-		return roleId;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoleId(Role roleId) {
-		this.roleId = roleId;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	

@@ -23,7 +23,7 @@ public class KullaniciToBrans {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="brans_id")
-	private Brans bransId;
+	private Brans brans;
 
 	public long getKtbId() {
 		return ktbId;
@@ -41,12 +41,12 @@ public class KullaniciToBrans {
 		this.kullanici = kullanici;
 	}
 
-	public Brans getBransId() {
-		return bransId;
+	public Brans getBrans() {
+		return brans;
 	}
 
-	public void setBransId(Brans bransId) {
-		this.bransId = bransId;
+	public void setBrans(Brans brans) {
+		this.brans = brans;
 	}
 
 	
