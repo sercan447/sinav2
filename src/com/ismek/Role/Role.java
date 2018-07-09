@@ -1,13 +1,8 @@
 package com.ismek.Role;
 
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.ismek.kullanici.*;
-
+import com.ismek.kullanicitorole.KullaniciToRole;
 import javax.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,20 +17,26 @@ public class Role {
     @Column(name = "roles")
     private String roles;
 
-    @ManyToMany(mappedBy = "roles",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<Kullanici> kullanicilar;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "roles",fetch = FetchType.EAGER)
+    private Set<KullaniciToRole> kullanicilar;
 
     public Role() {}
 
-    public Set<Kullanici> getKullanicilar() {
-        return kullanicilar;
-    }
+  
 
-    public void setKullanicilar(Set<Kullanici> kullanicilar) {
-        this.kullanicilar = kullanicilar;
-    }
+    public Set<KullaniciToRole> getKullanicilar() {
+		return kullanicilar;
+	}
 
-    public int getRoleId() {
+
+
+	public void setKullanicilar(Set<KullaniciToRole> kullanicilar) {
+		this.kullanicilar = kullanicilar;
+	}
+
+
+
+	public int getRoleId() {
         return roleId;
     }
 

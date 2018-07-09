@@ -64,7 +64,7 @@ public class Kullanici implements Serializable{
     @Size(max =1 ,message = "1 karakterden fazla giremezsiniz ")
     private String cinsiyet;
     
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    /*@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     //@JoinTable(name = "tbl_KullaniciToRole", joinColumns = @JoinColumn(name = "kullanici_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
    //@JsonBackReference
     private Set<Role> roles;
@@ -74,26 +74,28 @@ public class Kullanici implements Serializable{
    // @JoinTable(name = "tbl_KullaniciToBrans", joinColumns = @JoinColumn(name = "kullanici_id"), inverseJoinColumns = @JoinColumn(name = "brans_id"))
   //@JsonIgnore
     private Set<Brans> branslar;
+    */
+    
     
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy="roleId")
-    //@JoinColumn(name="ktr_id")
+    @JoinColumn(name="ktr_id")
     private Set<KullaniciToRole> kullaniciToRole;
 
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy="bransId")
-   // @JoinColumn(name="ktb_id")
+    @JoinColumn(name="ktb_id")
     private Set<KullaniciToBrans> kullaniciToBrans;
     
     public Kullanici() {}
     
-    public Set<Role> getRoles() {
+   /* public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
+*/
 
 
 	public long getKullaniciId() {
@@ -160,14 +162,14 @@ public class Kullanici implements Serializable{
         this.cinsiyet = cinsiyet;
     }
 
-    public Set<Brans> getBranslar() {
+  /*  public Set<Brans> getBranslar() {
         return branslar;
     }
 
     public void setBranslar(Set<Brans> branslar) {
         this.branslar = branslar;
     }
-
+*/
 	public Set<KullaniciToRole> getKullaniciToRole() {
 		return kullaniciToRole;
 	}

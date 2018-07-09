@@ -12,16 +12,16 @@ import com.ismek.kullanici.Kullanici;
 public class KullaniciToRole {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ktr_id")
 	private long ktrId;
 	
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="kullanici_id")
 	private Kullanici kullanici;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="role_id")
 	private Role roleId;
 

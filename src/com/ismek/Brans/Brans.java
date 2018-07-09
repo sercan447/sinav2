@@ -2,6 +2,7 @@ package com.ismek.Brans;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.ismek.kullanici.Kullanici;
+import com.ismek.kullanicitobrans.KullaniciToBrans;
 import com.ismek.sorular.Sorular;
 
 import javax.persistence.*;
@@ -27,8 +28,8 @@ public class Brans implements Serializable {
     private int kontenjan;
     
    
-    @ManyToMany(mappedBy = "branslar",fetch = FetchType.EAGER)
-    private Set<Kullanici> kullanicilar;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "branslar",fetch = FetchType.EAGER)
+    private Set<KullaniciToBrans> kullanicilar;
 
     
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
@@ -62,15 +63,17 @@ public class Brans implements Serializable {
         this.kontenjan = kontenjan;
     }
 
-    public Set<Kullanici> getKullanicilar() {
-        return kullanicilar;
-    }
 
-    public void setKullanicilar(Set<Kullanici> kullanicilar) {
-        this.kullanicilar = kullanicilar;
-    }
 
-    public Set<Sorular> getSorulars() {
+    public Set<KullaniciToBrans> getKullanicilar() {
+		return kullanicilar;
+	}
+
+	public void setKullanicilar(Set<KullaniciToBrans> kullanicilar) {
+		this.kullanicilar = kullanicilar;
+	}
+
+	public Set<Sorular> getSorulars() {
         return sorulars;
     }
 

@@ -69,8 +69,8 @@ public class BransDaoImpl implements BransDao{
 		Session session = sessionFactory.getCurrentSession();
 		Brans brans = session.byId(Brans.class).load(bransId);
 		Kullanici kullanici = session.byId(Kullanici.class).load(kullaniciId);
-		brans.getKullanicilar().add(kullanici);
-		kullanici.getBranslar().add(brans);
+		//brans.getKullanicilar().add(kullanici);
+		//kullanici.getBranslar().add(brans);
 	}
 
 	@Override

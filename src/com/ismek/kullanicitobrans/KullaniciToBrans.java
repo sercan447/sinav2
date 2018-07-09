@@ -13,15 +13,15 @@ public class KullaniciToBrans {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ktb_id")
 	private long ktbId;
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="kullanici_id")
 	private Kullanici kullanici;
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="brans_id")
 	private Brans bransId;
 
