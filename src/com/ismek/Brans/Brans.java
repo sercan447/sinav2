@@ -28,7 +28,7 @@ public class Brans implements Serializable {
     private int kontenjan;
     
    
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "branslar",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "kullanici",fetch = FetchType.EAGER)
     private Set<KullaniciToBrans> kullanicilar;
 
     

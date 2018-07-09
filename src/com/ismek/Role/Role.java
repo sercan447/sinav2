@@ -17,7 +17,7 @@ public class Role {
     @Column(name = "roles")
     private String roles;
 
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "roles",fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "kullanici",fetch = FetchType.EAGER)
     private Set<KullaniciToRole> kullanicilar;
 
     public Role() {}
@@ -27,7 +27,6 @@ public class Role {
     public Set<KullaniciToRole> getKullanicilar() {
 		return kullanicilar;
 	}
-
 
 
 	public void setKullanicilar(Set<KullaniciToRole> kullanicilar) {

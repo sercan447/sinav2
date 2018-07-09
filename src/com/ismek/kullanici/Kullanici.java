@@ -77,12 +77,12 @@ public class Kullanici implements Serializable{
     */
     
     
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy="roleId")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="ktr_id")
     private Set<KullaniciToRole> kullaniciToRole;
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy="bransId")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="ktb_id")
     private Set<KullaniciToBrans> kullaniciToBrans;
     
