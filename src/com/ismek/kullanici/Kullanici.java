@@ -79,12 +79,14 @@ public class Kullanici implements Serializable{
     
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "role")
     //@JoinColumn(name="ktr_id")
-    private Set<KullaniciToRole> kullaniciToRole;
+   // @JsonBackReference
+    private Set<KullaniciToRole> kullaniciToRole = new HashSet<>();
 
-
+    
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "brans")
     //@JoinColumn(name="ktb_id")
-    private Set<KullaniciToBrans> kullaniciToBrans;
+    //@JsonIgnore
+    private Set<KullaniciToBrans> kullaniciToBrans= new HashSet<KullaniciToBrans>();
     
     public Kullanici() {}
     

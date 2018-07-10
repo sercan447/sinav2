@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ismek.Role.Role;
 import com.ismek.kullanici.Kullanici;
 
@@ -18,11 +19,13 @@ public class KullaniciToRole {
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonIgnore
 	@JoinColumn(name="kullanici_id")
 	private Kullanici kullanici;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="role_id")
+	@JsonIgnore
 	private Role role;
 
 	public long getKtrId() {
