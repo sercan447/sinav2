@@ -31,13 +31,12 @@ public class SinavServiceImp implements SinavService {
 
 	@Override
 	public void update(long id, Sinav sinavUpdate) {
-		// TODO Auto-generated method stub
-		
+		sinavdao.update(id, sinavUpdate);		
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		sinavdao.delete(id);
 		
 	}
 

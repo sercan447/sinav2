@@ -41,11 +41,11 @@ public class Kullanici implements Serializable{
     private String tcNo;
 
     @Column(name="adi",nullable=false)
-    @Size(min = 2,max =20 ,message = "2 arası 20 karakterden fazla giremezsiniz ")
+    @Size(min = 2,max =20 ,message = "2 ile 20 karakterden fazla giremezsiniz ")
     private String ad;
 
     @Column(name="soyadi",nullable=false)
-    @Size(min = 2,max =25 ,message = "2 arası 25 karakterden fazla giremezsiniz ")
+    @Size(min = 2,max =25 ,message = "2 ile 25 karakterden fazla giremezsiniz ")
     private String soyAdi;
 
     @Column(name="telefon")

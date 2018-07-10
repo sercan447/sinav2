@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,28 +50,34 @@ public class SinavController {
 		return ResponseEntity.ok().body(sinav);
 	}
 	
-/*	@PostMapping(value="/insert")
-	public ResponseEntity save(@RequestBody Sinav sinav){
-		Date d = new Date();
+	
+	@PostMapping("/")
+	public ResponseEntity<?> create(@RequestBody Sinav sinav)
+	{
+		sinavservice.save(sinav);
+		return ResponseEntity.ok().body("Ekleme islemi tamam");
 		
-		Sinav s = new Sinav();
-			s.setSinavAdi("Pascal Uygulama Geliþtirme");
-			s.setSinavTarihi(d);
-			s.setSinavSuresi(74);
-			s.setSoruSayisi(32);
-			s.setBsSaati(d);
-			s.setSinavSalonu("8");
-			s.setKatkiYuzdesi(9);
-			s.setOlusturmaTarihi(d);
-			s.setAktif(true);
-			s.setOgretmenId(kullaniciService.get(2));
-			s.setBransId(bransService.get(2));
-			
-		
-		long id = sinavservice.save(sinav);
-		return new ResponseEntity(sinav,HttpStatus.OK);
 	}
-	*/
-
-
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> update(@PathVariable("id") long id ,@RequestBody Sinav sinav)
+	{
+		sinavservice.update(id, sinav);
+		return ResponseEntity.ok().body("Güncelleme islemi gerceklestirilmistir");
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id")long id){
+		//Kullanýcý var ise sil yok ise Silme iþlemi yapýlcak
+		try {
+			sinavservice.delete(id);
+		}catch(Exception e) {
+			return ResponseEntity.ok().body("Silinme iþleminde Hata Tespit edildi.");
+		}finally {
+			
+		}
+		
+		return ResponseEntity.ok().body("Silinme iþlei gerçekleþtirildi.");
+	}
+	
 }

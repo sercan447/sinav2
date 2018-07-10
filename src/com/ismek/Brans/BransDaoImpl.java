@@ -53,7 +53,7 @@ public class BransDaoImpl implements BransDao{
 		brans2.setBransAdi(brans.getBransAdi());
 		brans2.setKontenjan(brans.getKontenjan());
 		brans2.setKullanicilar(brans.getKullanicilar());
-	//	brans2.setSorulars(brans.getSorulars());
+		brans2.setSorulars(brans.getSorulars());
 		session.flush();
 	}
 

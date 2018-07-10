@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,15 +40,43 @@ public class SinavDaoImp implements SinavDao{
 	}
 
 	@Override
-	public void update(long id, Sinav sinavUpdate) {
-		// TODO Auto-generated method stub
+	public void update(long id, Sinav update) {
+		
+		Session session = sessionfactory.getCurrentSession();
+		Sinav sinav2 = session.load(Sinav.class, id);
+		
+		try {
+
+		sinav2.setAktif(update.isAktif());
+		sinav2.setBransId(update.getBransId());
+		sinav2.setBsSaati(update.getBsSaati());
+		sinav2.setKatkiYuzdesi(update.getKatkiYuzdesi());
+		sinav2.setOgretmenId(update.getOgretmenId());
+		sinav2.setOlusturmaTarihi(update.getOlusturmaTarihi());
+		sinav2.setSinavAdi(update.getSinavAdi());
+		sinav2.setSinavSalonu(update.getSinavSalonu());
+		sinav2.setSinavSuresi(update.getSinavSuresi());
+		sinav2.setSinavTarihi(update.getSinavTarihi());
+		sinav2.setSorulars(update.getSorulars());
+		sinav2.setSoruSayisi(update.getSoruSayisi());
+		
+		
+		}catch(Exception e) {
+			
+		}finally {
+			session.flush();
+		}
+		
 		
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		Session session = sessionfactory.getCurrentSession();
+		Sinav sinav = session.load(Sinav.class, id);
 		
+		session.delete(sinav);
+		session.flush();
 	}
 
 }

@@ -1,6 +1,9 @@
 package com.ismek.mulakat;
 
 import javax.persistence.*;
+
+import com.ismek.mulakatcevaplari.MulakatCevaplari;
+
 import java.io.Serializable;
 
 @Entity
@@ -15,6 +18,7 @@ public class Mulakat implements Serializable {
 
     @Column(name="m_sorulari")
     private String mSorulari;
+    
 
     public int getMulakatId() {
         return mulakatId;
@@ -31,4 +35,10 @@ public class Mulakat implements Serializable {
     public void setmSorulari(String mSorulari) {
         this.mSorulari = mSorulari;
     }
+
+	
+    
+    
+    
+    
 }

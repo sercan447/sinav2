@@ -1,6 +1,7 @@
 package com.ismek.kullanicitosinav;
 
 import com.ismek.kullanici.Kullanici;
+import com.ismek.mulakatcevaplari.MulakatCevaplari;
 import com.ismek.sinav.Sinav;
 
 import javax.persistence.*;
@@ -36,13 +37,15 @@ public class KullaniciToSinav implements Serializable {
     @Max(value=20)
     private String ipAdresi;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @JoinColumn(name="kullanici_id")
     private Kullanici kullaniciId;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL,	fetch=FetchType.EAGER)
     @JoinColumn(name="sinav_id")
     private Sinav sinavId;
+    
+
 
     public int getKtsId() {
         return ktsId;
@@ -115,4 +118,7 @@ public class KullaniciToSinav implements Serializable {
     public void setSinavId(Sinav sinavId) {
         this.sinavId = sinavId;
     }
+
+    
+    
 }

@@ -24,11 +24,10 @@ public class Sinav implements Serializable {
     private long sinavId;
 
     @Column(name="sinav_adi",nullable=false)
-    @Size(min = 2,max =25 ,message = "2 arası 25 karakterden fazla giremezsiniz ")
+    @Size(min = 2,max =25 ,message = "2 ve 25 karakterden fazla giremezsiniz ")
     private String sinavAdi;
 
-    @CreationTimestamp
-    @JsonFormat(pattern = "YYYY-MM-dd")
+   // @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     @Column(name="sinav_tarihi",nullable=false)
     private Date sinavTarihi;
 
@@ -38,8 +37,9 @@ public class Sinav implements Serializable {
     @Column(name="soru_sayisi",nullable=false)
     private int soruSayisi;
 
-    @Temporal(value = TemporalType.TIME)
+
     @Column(name="bs_saati")
+   // @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private Date bsSaati;
 
     @Column(name="sinav_salonu")
@@ -48,9 +48,10 @@ public class Sinav implements Serializable {
     @Column(name="katki_yuzdesi")
     private float katkiYuzdesi;
 
-    @Temporal(value = TemporalType.DATE)
+  
+   // @CreationTimestamp
     @Column(name="olusturma_tarihi")
-    @JsonFormat(pattern = "YYYY-MM-dd")
+  //  @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private Date olusturmaTarihi;
     
     @Column(name="is_aktif")
