@@ -15,7 +15,7 @@ public class MulakatCevaplari implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="m_cevap_id")
-    private int mCevapId;
+    private long mCevapId;
 
     @Column(name="cevap")
     private String cevap;
@@ -29,11 +29,11 @@ public class MulakatCevaplari implements Serializable {
     private Mulakat mulakatId;
 
 
-    public int getmCevapId() {
+    public long getmCevapId() {
         return mCevapId;
     }
 
-    public void setmCevapId(int mCevapId) {
+    public void setmCevapId(long mCevapId) {
         this.mCevapId = mCevapId;
     }
 

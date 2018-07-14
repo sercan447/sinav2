@@ -16,5 +16,7 @@ public interface KullaniciDao {
     void delete(long id);
     
     List<Kullanici> getByName(String name);
+    
+    Kullanici login(String mail,String tcno);
 	
 }

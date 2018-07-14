@@ -39,4 +39,10 @@ public class KullaniciServiceImpl implements KullaniciService{
 		kullaniciDao.delete(id);
 	}
 
+	@Override
+	public Kullanici login(String mail, String tcno) {
+		
+		return kullaniciDao.login(mail, tcno);
+	}
+
 }

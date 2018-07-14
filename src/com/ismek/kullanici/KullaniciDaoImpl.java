@@ -69,4 +69,15 @@ public class KullaniciDaoImpl implements KullaniciDao {
 		return listKullanici;
 	}
 
+	@Override
+	public Kullanici login(String mail, String tcno) {
+		Session session = sessionFactory.getCurrentSession();
+		TypedQuery<Kullanici> sorgu =  session.createNamedQuery("Kullanici.findByLogin",Kullanici.class);
+		sorgu.setParameter("mail",mail);	
+		sorgu.setParameter("tcNo", tcno);
+		
+		Kullanici kullanici = sorgu.getSingleResult();
+		return kullanici;
+	}
+
 }

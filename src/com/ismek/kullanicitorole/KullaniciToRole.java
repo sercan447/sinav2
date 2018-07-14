@@ -19,8 +19,8 @@ public class KullaniciToRole {
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
 	@JoinColumn(name="kullanici_id")
+	@JsonIgnore
 	private Kullanici kullanici;
 	
 	@ManyToOne

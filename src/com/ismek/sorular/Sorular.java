@@ -1,6 +1,9 @@
 package com.ismek.sorular;
 
 import javax.persistence.*;
+
+import com.ismek.kullanici.Kullanici;
+
 import java.util.Date;
 
 @Entity(name = "tbl_Sorular")
@@ -29,9 +32,14 @@ public class Sorular {
     private int isAktif;
     @Column(name = "zorluk_seviyesi")
     private String zorlukSeviyesi;
-    @Column(name = "kullanici_id")
-    private int kullaniciId;
     
+    @ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    @JoinColumn(name="kullanici_id")
+    private Kullanici kullaniciId;
+    
+    /*@Column(name = "kullanici_id")
+    private int kullaniciId;
+    */
     public Sorular() {}
 
     public long getSoruId() {
@@ -114,13 +122,21 @@ public class Sorular {
         this.zorlukSeviyesi = zorlukSeviyesi;
     }
 
-    public int getKullaniciId() {
+	public Kullanici getKullaniciId() {
+		return kullaniciId;
+	}
+
+	public void setKullaniciId(Kullanici kullaniciId) {
+		this.kullaniciId = kullaniciId;
+	}
+
+   /* public int getKullaniciId() {
         return kullaniciId;
     }
 
     public void setKullaniciId(int kullaniciId) {
         this.kullaniciId = kullaniciId;
     }
-
+*/
 
 }

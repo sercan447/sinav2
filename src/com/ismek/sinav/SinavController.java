@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,16 +69,15 @@ public class SinavController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id")long id){
-		//Kullanýcý var ise sil yok ise Silme iþlemi yapýlcak
-		try {
 			sinavservice.delete(id);
-		}catch(Exception e) {
-			return ResponseEntity.ok().body("Silinme iþleminde Hata Tespit edildi.");
-		}finally {
-			
-		}
-		
 		return ResponseEntity.ok().body("Silinme iþlei gerçekleþtirildi.");
 	}
 	
+	/*
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<Object> HataHandle(Exception e) {
+		
+		return new ResponseEntity<Object>("HATA ALDIK "+e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+	}
+	*/
 }

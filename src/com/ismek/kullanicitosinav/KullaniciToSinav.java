@@ -34,7 +34,7 @@ public class KullaniciToSinav implements Serializable {
     private int sinavPuan;
 
     @Column(name="ip_adresi")
-    @Max(value=20)
+   // @Max(value=20)
     private String ipAdresi;
 
     @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)

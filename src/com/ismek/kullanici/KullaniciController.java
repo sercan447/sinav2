@@ -39,7 +39,7 @@ public class KullaniciController {
 	}
 	
 	// Bütün kullaniciı getir
-	@GetMapping("/All")
+	@GetMapping("/")
 	public ResponseEntity<List<Kullanici>> getAll(){
 		List<Kullanici> kullanicilar = kullaniciService.listKullanici();
 		return ResponseEntity.ok().body(kullanicilar);
@@ -49,12 +49,25 @@ public class KullaniciController {
 	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Kullanici kullanici){
 		kullaniciService.update(id, kullanici);
-		return ResponseEntity.ok().body("[" + id + "] li kullanici güncellendi...");
+		return ResponseEntity.ok().body("[" + id + "] li kullanici guncellendi...");
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") long id){
 		kullaniciService.delete(id);
 		return ResponseEntity.ok().body("[" + id + "] li kullanici silindi...");
+	}
+	
+	@GetMapping("/{mail}/{tcno}")
+	public ResponseEntity<?> login(@PathVariable("mail")String mail,@PathVariable("tcno")String tcno){
+		
+		
+		Kullanici kullanici = kullaniciService.login(mail, tcno);
+		if(kullanici != null)
+		{
+			return ResponseEntity.ok().body(kullanici);
+		}
+			return ResponseEntity.ok().body("Bo�");
+			
 	}
 }

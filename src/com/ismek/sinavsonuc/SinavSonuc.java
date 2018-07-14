@@ -13,7 +13,7 @@ public class SinavSonuc implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="s_sonuc_id",nullable=false)
-    private int sSonucId;
+    private long sSonucId;
 
     @Column(name="d_sayisi",nullable=false)
     private int dSayisi;
@@ -31,11 +31,11 @@ public class SinavSonuc implements Serializable {
     @JoinColumn(name="kts_id",unique=true)
     private KullaniciToSinav ktsId;
 
-    public int getsSonucId() {
+    public long getsSonucId() {
         return sSonucId;
     }
 
-    public void setsSonucId(int sSonucId) {
+    public void setsSonucId(long sSonucId) {
         this.sSonucId = sSonucId;
     }
 

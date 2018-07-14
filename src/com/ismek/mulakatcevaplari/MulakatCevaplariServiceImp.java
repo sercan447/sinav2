@@ -14,15 +14,14 @@ public class MulakatCevaplariServiceImp implements MulakatCevaplariService{
 	
 	
 	@Override
-	public long save(MulakatCevaplari mulakat) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long save(MulakatCevaplari mulakatCevaplari) {
+		return mulakatCevaplariDao.save(mulakatCevaplari);
 	}
 
 	@Override
 	public MulakatCevaplari get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return mulakatCevaplariDao.get(id);
 	}
 
 	@Override
@@ -33,14 +32,13 @@ public class MulakatCevaplariServiceImp implements MulakatCevaplariService{
 
 	@Override
 	public void update(long id, MulakatCevaplari Update) {
-		// TODO Auto-generated method stub
+		mulakatCevaplariDao.update(id, Update);
 		
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
+		mulakatCevaplariDao.delete(id);		
 	}
 
 }

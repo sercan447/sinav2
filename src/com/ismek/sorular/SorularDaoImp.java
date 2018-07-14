@@ -5,6 +5,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ismek.mulakatcevaplari.MulakatCevaplari;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -14,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Transactional
+@Transactional(readOnly = true)
 public class SorularDaoImp implements SorularDao {
 
     @Autowired
@@ -33,13 +36,20 @@ public class SorularDaoImp implements SorularDao {
 
     @Override
     public List<Sorular> list() {
-        Session session =sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Sorular> cq = cb.createQuery(Sorular.class);
         Root<Sorular> root = cq.from(Sorular.class);
         cq.select(root);
         Query<Sorular> query = session.createQuery(cq);
         return query.getResultList();
+        
+    	
+    	/*Session session = sessionFactory.getCurrentSession();
+		Criteria cr = session.createCriteria(Sorular.class);
+		List<Sorular> sorularlist = cr.list();
+		return sorularlist;
+		*/
     }
 
     @Override

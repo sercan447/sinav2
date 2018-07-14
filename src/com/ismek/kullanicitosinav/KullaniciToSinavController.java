@@ -19,7 +19,7 @@ public class KullaniciToSinavController {
 	@Autowired
 	private KullaniciToSinavService kullaniciToservice;
 	
-	@GetMapping("/All")
+	@GetMapping("/")
 	public ResponseEntity<List<KullaniciToSinav>> list(){
 		
 		return ResponseEntity.ok(kullaniciToservice.list());

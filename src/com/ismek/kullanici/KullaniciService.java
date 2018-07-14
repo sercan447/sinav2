@@ -14,5 +14,7 @@ public interface KullaniciService {
     void update(long id, Kullanici kullanici);
 
     void delete(long id);
+    
+    Kullanici login(String mail,String tcno);
 	
 }

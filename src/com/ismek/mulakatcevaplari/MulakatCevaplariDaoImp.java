@@ -19,15 +19,15 @@ public class MulakatCevaplariDaoImp implements MulakatCevaplariDao{
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public long save(MulakatCevaplari mulakat) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long save(MulakatCevaplari mulakatCevaplari) {
+		sessionfactory.getCurrentSession().save(mulakatCevaplari);
+		return mulakatCevaplari.getmCevapId();
 	}
 
 	@Override
 	public MulakatCevaplari get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sessionfactory.getCurrentSession().get(MulakatCevaplari.class, id);
 	}
 
 	@Override
